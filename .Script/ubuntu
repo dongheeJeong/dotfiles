@@ -1,0 +1,30 @@
+#!/bin/bash
+# Execute docker ubuntu container
+# if dockerd is not running abort
+# if ubuntu container is already running, exec bash on the container
+# if ubuntu container is not running, run a new ubuntu container
+
+function main() {
+	# Check dockerd running
+	CHECK_ERR=$(docker ps -a 1>/dev/null 2>&1)
+	if [ -z "$CHECK_ERR" ]
+   	then
+		exec_container
+	else
+		echo $CHECK
+	fi
+}
+
+function exec_container() {
+    CONTAINER=$(docker ps -a | grep ubuntu | awk '{print $1}')
+    if [ -z "$CONTAINER" ]
+   	then
+		# exec new container
+        docker run --rm -ti -v=$PWD:/opt ubuntu bash
+    else
+		# exec bash from running container
+        docker exec -ti $CONTAINER bash
+    fi
+}
+
+main "$@"

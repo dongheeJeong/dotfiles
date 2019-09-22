@@ -1,0 +1,16 @@
+#!/bin/bash
+RED='\033[0;31m'
+NC='\033[0m' # No color
+line="========================================"
+printf "$RED$line$line$NC\n"
+printf "$RED$line$line$NC\n"
+
+set -x
+file=$1
+case "$file" in
+	*\.cpp) g++ -Wall -W -g -std=c++14 $file && ./a.out ;;
+	*\.c) gcc -Wall -W -g $file && ./a.out ;;
+	*\.py) python3 $file ;;
+	*\.java) javac $file && java $(echo $file | cut -d'.' -f1) ;; 
+	*\.tex) docker run --rm -ti -v=$PWD:/pdf texlive bash -c "cd /pdf && pdflatex $1"
+esac
