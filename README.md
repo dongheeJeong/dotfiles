@@ -6,7 +6,7 @@ To deploy dotfiles in home directory without project directory:
 ```
 cd ~
 git init .
-git remote add origin git@github.com:user/repo.git
+git remote add origin https://github.com/dongheeJeong/dotfiles.git
 git fetch origin
 git checkout master
 
