@@ -33,7 +33,7 @@ set relativenumber
 set hlsearch
 set ts=4
 set sw=4
-set clipboard=unnamed
+set clipboard^=unnamed,unnamedplus
 colorscheme lettuce
 
 " for lightline
