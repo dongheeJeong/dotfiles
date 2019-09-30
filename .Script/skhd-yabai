@@ -1,0 +1,17 @@
+#!/bin/bash
+
+ARG1=$1
+
+if [ "$ARG1" = "start" ]
+then
+	pkill skhd
+	pkill yabai
+	nohup skhd 2>&1 > /dev/null &
+	nohup yabai 2>&1 > /dev/null &
+elif [ "$ARG1" = "stop" ]
+then
+	pkill skhd
+	pkill yabai
+else
+	echo "Usage: $0 [start | stop]"
+fi
