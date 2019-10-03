@@ -1,6 +1,8 @@
 # open terminal, blazingly fast compared to iTerm/Hyper
 alt - return : open -n /Applications/Utilities/Terminal.app
-shift + alt - w : open -n /Applications/Google\ Chrome.app
+shift + alt - w : open -n /Applications/qutebrowser.app
+shift + alt - k : open /Applications/KakaoTalk.app
+shift + alt - m : open /Applications/Melon.app
 
 # focus window
 alt - h : yabai -m window --focus west
@@ -65,8 +67,8 @@ shift + alt - b : yabai -m window --toggle border
 alt - e : yabai -m window --toggle split
 
 # float / unfloat window and center on screen
-# alt - t : yabai -m window --toggle float;\
-#           yabai -m window --grid 4:4:1:1:2:2
+alt - t : yabai -m window --toggle float;\
+          yabai -m window --grid 4:4:1:1:2:2
  
 # toggle sticky (show on all spaces)
 # alt - s : yabai -m window --toggle sticky
