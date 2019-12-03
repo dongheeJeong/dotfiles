@@ -9,8 +9,10 @@ set -x
 file=$1
 case "$file" in
 	*\.cpp) g++ -Wall -W -g -std=c++14 $file && ./a.out ;;
-	*\.c) gcc -Wall -W -g $file && ./a.out ;;
+	*\.c) gcc -Wall -W -g -lcurses -lpthread $file && ./a.out ;;
 	*\.py) python3 $file ;;
 	*\.java) javac $file && java $(echo $file | cut -d'.' -f1) ;; 
-	*\.tex) docker run --rm -ti -v=$PWD:/pdf texlive bash -c "cd /pdf && pdflatex $1"
+	*\.go) go build -o ./a.out && ./a.out ;;
+	*\.tex) docker run --rm -ti -v=$PWD:/pdf texlive bash -c "cd /pdf && pdflatex $1" ;;
+	*\.pl) perl $file ;;
 esac
