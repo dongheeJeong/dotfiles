@@ -20,7 +20,7 @@ function exec_container() {
     if [ -z "$CONTAINER" ]
    	then
 		# exec new container
-        docker run --rm -ti -v=$PWD:/opt ubuntu bash
+        docker run --privileged --rm -ti -v=$PWD:/opt ubuntu bash
     else
 		# exec bash from running container
         docker exec -ti $CONTAINER bash
